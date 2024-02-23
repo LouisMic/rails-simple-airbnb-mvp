@@ -1,0 +1,27 @@
+<div class="offset-1 col-10 mt-3">
+  <%= form_with model: flat do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :description, class: "form-label" %>
+      <%= f.text_area :description, rows: 6, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :address, class: "form-label" %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="row mb-3">
+      <div class="col-4">
+        <%= f.label :number_of_guests, class: "form-label" %>
+        <%= f.number_field :number_of_guests, in: 1..16, class: "form-control" %>
+      </div>
+      <div class="offset-2 col-4">
+        <%= f.label :price_per_night, class: "form-label" %>
+        <%= f.number_field :price_per_night, class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
