@@ -3,3 +3,21 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 16px;
 }
+
+.info {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgba(234, 234, 234, 0.872);
+  --bs-bg-opacity: 1;
+  border-radius: 5px;
+}
+
+#booking-container {
+  position: relative;
+  top: -5vh;
+  z-index: 1;
+}
+
+#map {
+  z-index: 0;
+}

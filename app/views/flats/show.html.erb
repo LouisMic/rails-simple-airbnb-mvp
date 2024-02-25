@@ -1,0 +1,51 @@
+<div id="map" style="width: 100vw; height: 40vh;"
+  data-controller="map"
+  data-map-markers-value="<%= @flat.markers.to_json() %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<div class="container d-flex justify-content-center" id="booking-container">
+  <div class="col-7 d-flex flex-column pe-5">
+    <div class="info">
+      <h2><%= @flat.name %></h2>
+      <p><%= @flat.address %></p>
+    </div>
+    <div class="info">
+      <h3>A bit more about this flat...</h3>
+      <p><%= @flat.description %></p>
+    </div>
+    <div class="info">
+      <h3>Details</h3>
+      <div class="d-flex">
+        <i class="fa-solid fa-user-group pe-1 "></i>
+        <%= @flat.number_of_guests %>
+        <i class="fa-solid fa-euro-sign ps-3 pe-1"></i>
+        <%= @flat.price_per_night %>
+      </div>
+    </div>
+  </div>
+  <div class="ps-5 col-4 d-flex flex-column">
+    <div class="info">
+      <p>Book this place!</p>
+      <form action="/flats" method="POST">
+        <div class="input-group mb-3">
+          <span class="input-group-text">From</span>
+          <input type="date" class="form-control" placeholder="DD/MM/AAAA" aria-label="start_date">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">To</span>
+          <input type="date" class="form-control" placeholder="DD/MM/AAAA" aria-label="end_date">
+        </div>
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+      </form>
+    </div>
+    <div class="info d-flex justify-content-between">
+      <p>Share</p>
+      <div class="p-2">
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-square-twitter"></i>
+        <i class="fa-brands fa-square-pinterest"></i>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+    </div>
+  </div>
+</div>

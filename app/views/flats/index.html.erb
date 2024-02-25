@@ -3,7 +3,7 @@
   <div class="cards mt-3">
     <% @flats.each do |flat| %>
       <div class="card" style="width: 18rem;">
-        <div class="card-body p-0 d-flex flex-column align-items-between">
+        <div class="card-body p-0 d-flex flex-column">
           <div class="bg-secondary bg-opacity-25 p-3 h-100">
             <h6 class="card-title"><%= flat.name %></h6>
             <p class="card-text mb-2 fs-7"><%= flat.address %></p>
@@ -14,7 +14,11 @@
               <%= flat.price_per_night %>
             </div>
           </div>
-          <%= link_to "More info", flat_path(flat), class: "text-decoration-none p-3" %>
+          <div class="d-flex">
+            <%= link_to "More info", flat_path(flat), class: "text-decoration-none p-3" %>
+            <%= link_to "Edit", edit_flat_path(flat), class: "text-decoration-none text-warning p-3" %>
+            <%= link_to "Remove", flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none text-danger p-3" %>
+          </div>
         </div>
       </div>
     <% end %>

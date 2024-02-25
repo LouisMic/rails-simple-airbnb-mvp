@@ -25,7 +25,7 @@ class FlatsController < ApplicationController
   end
 
   def update
-    @flat = Flat.update(flat_params)
+    @flat.update(flat_params)
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -35,6 +35,7 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat.destroy
+    redirect_to flats_path(), status: :see_other
   end
 
   private
